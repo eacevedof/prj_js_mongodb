@@ -16,7 +16,9 @@ FAZT - MongoDB, Curso Practico Rápido, Desde Cero Para Iniciantes
 7. [El `ObjectId("somehash")`](https://youtu.be/Apbk83XL8L8?t=1203)
 8. [Bulk insert con arrays ](https://youtu.be/Apbk83XL8L8?t=1320)
 9. [Corrigiendo propiedad con typo lasName a lastName](https://youtu.be/Apbk83XL8L8?t=1660)
-10. [Haciendo un UPDATE]
+10. [Haciendo un UPDATE](https://youtu.be/Apbk83XL8L8?t=1916)
+11. [Formateando find pretty()](https://youtu.be/Apbk83XL8L8)
+12. [Buscando por _Id con ObjectId(..)](https://youtu.be/Apbk83XL8L8?t=2102)
 
 # comandos consola
 ```
@@ -37,6 +39,7 @@ db.clientes.insert([...])   hace un bulk insert como INSERT INTO ... VALUES (...
 db.clientes.find({firstName:"Isaac"})  SELECT * FROM clientes WHERE firstName='Isaac'
 
 db.clientes.update({.condicion.},{nuevos valores}) UPDATE clientes SET nuevos valores WHERE condicion
+db.clientes.find().pretty() Muestra los datos formateados para mejor legibilidad
 +-----------------+--------------------------------------------------------------------+
 ```
 
@@ -54,6 +57,7 @@ Al crear una bd `misclientes`, por ejemplo, con >use misclientes. Mongo no crea 
 Mongo crea un id único de tipo hash en cada colección, lo genera en el atributo _id
 "_id" : ObjectId("5a2828c26ad9877fa8c09d56"), sería como la clave principal
 
+Para buscar un registro por id se debe utilizar ObjectId de lo contrario lo entendería como un string común
 
 
 

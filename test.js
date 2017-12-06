@@ -46,3 +46,27 @@ db.clientes.update(
     {firstName:"Elena",lastName:"soraya",gender:"female"}
 )
 //WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+db.clientes.find().pretty()
+/*{
+        "_id" : ObjectId("5a2828c26ad9877fa8c09d56"),
+        "firstName" : "Isaac",
+        "lastName" : "Asimov"
+}
+{
+        "_id" : ObjectId("5a282be86ad9877fa8c09d57"),
+        "firstName" : "Isaac",
+        "lastName" : "Asimov"
+}
+{
+        "_id" : ObjectId("5a282be86ad9877fa8c09d58"),
+        "firstName" : "Elena",
+        "lastName" : "soraya",
+        "gender" : "female"
+}
+{
+        "_id" : ObjectId("5a282be86ad9877fa8c09d59"),
+        "firstName" : "Joe",
+        "lastName" : "McMillan"
+}*/
+
