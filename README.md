@@ -25,16 +25,14 @@ FAZT - MongoDB, Curso Practico Rápido, Desde Cero Para Iniciantes
 ```
 
 # notas
-Al instalar mongo en windows no acaba, la barra de progreso se queda en la "u" de minutes
-
-Al ejecutar el comando `mongod` (arrancar el servicio) no se levantaba pq no encontraba la ruta c:\data\db
-
-Tampoco me ha instalado las variables de entorno, la he añadido a mano en c:\<rutamongodb>\bin
-
-Creé la ruta y entonces se quedó a la escucha por el puerto: 27017
-
-Al conectarse a mongo por defecto se conecta a una base por defecto
-
+Al instalar mongo en windows no acaba, la barra de progreso se queda en la "u" de minutes.
+Al ejecutar el comando `mongod` (arrancar el servicio) no se levantaba pq no encontraba la ruta c:\data\db.
+Tampoco me ha instalado las variables de entorno, la he añadido a mano en c:\<rutamongodb>\bin .
+Creé la ruta y entonces se quedó a la escucha por el puerto: 27017.
+Al conectarse a mongo por defecto se conecta a una base por defecto.
+`show dbs` me muestra 3 bd con tamaño 0: admin,config y local.
+`db` me muestra test.
+`use misclientess` me muestra switched to db misclientes.
 Al crear una bd `misclientes`, por ejemplo, con >use misclientes. Mongo no crea directamente la bd hasta que se inserte al menos un registro (documento)
 
 # errores

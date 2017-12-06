@@ -8,3 +8,4 @@ db.createUser({
     pwd:"123",
     roles:["readWrite","dbAdmin"]
 })
+//Successfully added user: { "user" : "ioedu", "roles" : [ "readWrite", "dbAdmin" ] }
