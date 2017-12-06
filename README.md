@@ -11,6 +11,7 @@ FAZT - MongoDB, Curso Practico Rápido, Desde Cero Para Iniciantes
 3. [creando un usuario db.createUser()](https://youtu.be/Apbk83XL8L8?t=800)
 
 # comandos consola
+```
 +-----------------+--------------------------------------------------------------------+
 |     comando     |                               acción                               |
 +-----------------+--------------------------------------------------------------------+
@@ -21,6 +22,7 @@ FAZT - MongoDB, Curso Practico Rápido, Desde Cero Para Iniciantes
 | use <nombrebd>  | cambia la conexión actual a la bd <nombrebd>                       |
 | db.createUser() | crea un usuario, muestra Successfully added user:<el json>         |
 +-----------------+--------------------------------------------------------------------+
+```
 
 # notas
 Al instalar mongo en windows no acaba, la barra de progreso se queda en la "u" de minutes
