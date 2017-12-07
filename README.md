@@ -55,8 +55,8 @@ db.clientes.find().pretty() Muestra los datos formateados para mejor legibilidad
 - `db` me muestra test.
 - `use misclientess` me muestra switched to db misclientes.
 - Al crear una bd `misclientes`, por ejemplo, con >use misclientes. Mongo no crea directamente la bd hasta que se inserte al menos un registro (documento)
-- Mongo crea un id único de tipo hash en cada colección, lo genera en el atributo _id
-"_id" : ObjectId("5a2828c26ad9877fa8c09d56"), sería como la clave principal
+- Mongo crea un id único de tipo hash en cada colección, lo genera en el atributo `_id`
+`"_id" : ObjectId("5a2828c26ad9877fa8c09d56")`, sería como la clave principal
 - Para buscar un registro por id se debe utilizar ObjectId de lo contrario lo entendería como un string común
 - `$set` es un modificador que permite agregar una propiedad a un dato
 - `$inc` sirve para incrementar un atributo tipo entero, para decrementar se usa -
