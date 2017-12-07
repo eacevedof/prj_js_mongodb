@@ -22,6 +22,11 @@ FAZT - MongoDB, Curso Practico Rápido, Desde Cero Para Iniciantes
 13. [$set - agregador de propiedad](https://youtu.be/Apbk83XL8L8?t=2368)
 14. [$inc - incrementador](https://youtu.be/Apbk83XL8L8?t=2446)
 14. [$unset - quita propiedad](https://youtu.be/Apbk83XL8L8?t=2628)
+15. [upsert - flag, indica hacer update si no puede insert](https://youtu.be/Apbk83XL8L8?t=2792)
+16. [$rename - renombra una propiedad](https://youtu.be/Apbk83XL8L8?t=2947)
+17. [.remove() Eliminar un dato](https://youtu.be/Apbk83XL8L8?t=3005)
+18. [justOne - flag, elimina tan solo uno] (https://youtu.be/Apbk83XL8L8?t=3129)
+
 
 # comandos consola
 ```
@@ -43,6 +48,12 @@ db.clientes.find({firstName:"Isaac"})  SELECT * FROM clientes WHERE firstName='I
 
 db.clientes.update({.condicion.},{nuevos valores}) UPDATE clientes SET nuevos valores WHERE condicion
 db.clientes.find().pretty() Muestra los datos formateados para mejor legibilidad
+$set    seria como un alter table de agregación de campo
+$inc    seria como una funcion preprogramada
+$unset  seria como un alter table de eliminacion de campo
+`upsert`    Flag que indica que si no existe el registro lo inserta y si existe lo actualia
+$rename alter table de un nombre de campo
+db.clientes.remove({condicion}) es como un DELETE FROM clientes WHERE <condición>
 +-----------------+--------------------------------------------------------------------+
 ```
 
