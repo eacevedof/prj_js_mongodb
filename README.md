@@ -25,8 +25,17 @@ FAZT - MongoDB, Curso Practico Rápido, Desde Cero Para Iniciantes
 15. [upsert - flag, indica hacer update si no puede insert](https://youtu.be/Apbk83XL8L8?t=2792)
 16. [$rename - renombra una propiedad](https://youtu.be/Apbk83XL8L8?t=2947)
 17. [.remove() Eliminar un dato](https://youtu.be/Apbk83XL8L8?t=3005)
-18. [justOne - flag, elimina tan solo uno] (https://youtu.be/Apbk83XL8L8?t=3129)
-
+18. [justOne - flag, elimina tan solo uno](https://youtu.be/Apbk83XL8L8?t=3129)
+19. [$or - Busquedas elaboradas](https://youtu.be/Apbk83XL8L8?t=3212)
+20. [$gt - Mayor que](https://youtu.be/Apbk83XL8L8?t=3523)
+21. [$lt - Menores que](https://youtu.be/Apbk83XL8L8?t=3594)
+22. [Busqueda en datos anidados](https://youtu.be/Apbk83XL8L8?t=3691)
+23. [$regex Busqueda por expresiones regulares](https://youtu.be/Apbk83XL8L8?t=3848)
+24. [find().sort() Ordenación](https://youtu.be/Apbk83XL8L8?t=3971)
+25. [find().count() Devuelve el n de documentos](https://youtu.be/Apbk83XL8L8?t=4070)
+26. [find().limit(iN)](https://youtu.be/Apbk83XL8L8?t=4162)
+27. [find().forEach()](https://youtu.be/Apbk83XL8L8?t=4210)
+28. [Robomongo - Interfaz gráfica](https://youtu.be/Apbk83XL8L8?t=4311)
 
 # comandos consola
 ```
@@ -54,6 +63,12 @@ $unset  seria como un alter table de eliminacion de campo
 `upsert`    Flag que indica que si no existe el registro lo inserta y si existe lo actualia
 $rename alter table de un nombre de campo
 db.clientes.remove({condicion}) es como un DELETE FROM clientes WHERE <condición>
+`$or`   condicional `OR`
+`$regex`    Se podria entender como el LIKE
+`find().sort()` Es la ordenacion como hace ORDER BY, el -1 es el DESC
+`find().count()`    Es el COUNT(*) 
+`find().limit(iN)`  Es el LIMIT
+`find().forEach`
 +-----------------+--------------------------------------------------------------------+
 ```
 
@@ -72,7 +87,7 @@ db.clientes.remove({condicion}) es como un DELETE FROM clientes WHERE <condició
 - Para buscar un registro por id se debe utilizar ObjectId de lo contrario lo entendería como un string común
 - `$set` es un modificador que permite agregar una propiedad a un dato
 - `$inc` sirve para incrementar un atributo tipo entero, para decrementar se usa -
-
+- Buscando 'mongodb gui encontraremos interfaces gráficas'
 
 # errores
 Al arrancar `mongod`: 
