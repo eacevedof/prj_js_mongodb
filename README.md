@@ -21,6 +21,7 @@ FAZT - MongoDB, Curso Practico Rápido, Desde Cero Para Iniciantes
 12. [Buscando por _Id con ObjectId(..)](https://youtu.be/Apbk83XL8L8?t=2102)
 13. [$set - agregador de propiedad](https://youtu.be/Apbk83XL8L8?t=2368)
 14. [$inc - incrementador](https://youtu.be/Apbk83XL8L8?t=2446)
+14. [$unset - quita propiedad](https://youtu.be/Apbk83XL8L8?t=2628)
 
 # comandos consola
 ```
