@@ -19,6 +19,8 @@ FAZT - MongoDB, Curso Practico Rápido, Desde Cero Para Iniciantes
 10. [Haciendo un UPDATE](https://youtu.be/Apbk83XL8L8?t=1916)
 11. [Formateando find pretty()](https://youtu.be/Apbk83XL8L8)
 12. [Buscando por _Id con ObjectId(..)](https://youtu.be/Apbk83XL8L8?t=2102)
+13. [$set - agregador de propiedad](https://youtu.be/Apbk83XL8L8?t=2368)
+14. [$inc - incrementador](https://youtu.be/Apbk83XL8L8?t=2446)
 
 # comandos consola
 ```
@@ -56,9 +58,8 @@ db.clientes.find().pretty() Muestra los datos formateados para mejor legibilidad
 - Mongo crea un id único de tipo hash en cada colección, lo genera en el atributo _id
 "_id" : ObjectId("5a2828c26ad9877fa8c09d56"), sería como la clave principal
 - Para buscar un registro por id se debe utilizar ObjectId de lo contrario lo entendería como un string común
-
-
-
+- `$set` es un modificador que permite agregar una propiedad a un dato
+- `$inc` sirve para incrementar un atributo tipo entero, para decrementar se usa -
 
 
 # errores

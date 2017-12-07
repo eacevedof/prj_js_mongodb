@@ -1,3 +1,10 @@
+
+
+document.tss.params1.value='0';goFunc('store');
+goFunc('erase');
+goFunc('destroyTable')
+
+
 //test.js
 /*
 son comandos de mongo
@@ -29,14 +36,14 @@ db.clientes.insert([
 
 /*
 BulkWriteResult({
-        "writeErrors" : [ ],
-        "writeConcernErrors" : [ ],
-        "nInserted" : 3,
-        "nUpserted" : 0,
-        "nMatched" : 0,
-        "nModified" : 0,
-        "nRemoved" : 0,
-        "upserted" : [ ]
+    "writeErrors" : [ ],
+    "writeConcernErrors" : [ ],
+    "nInserted" : 3,
+    "nUpserted" : 0,
+    "nMatched" : 0,
+    "nModified" : 0,
+    "nRemoved" : 0,
+    "upserted" : [ ]
 })
 */
 
@@ -49,24 +56,57 @@ db.clientes.update(
 
 db.clientes.find().pretty()
 /*{
-        "_id" : ObjectId("5a2828c26ad9877fa8c09d56"),
-        "firstName" : "Isaac",
-        "lastName" : "Asimov"
+    "_id" : ObjectId("5a2828c26ad9877fa8c09d56"),
+    "firstName" : "Isaac",
+    "lastName" : "Asimov"
 }
 {
-        "_id" : ObjectId("5a282be86ad9877fa8c09d57"),
-        "firstName" : "Isaac",
-        "lastName" : "Asimov"
+    "_id" : ObjectId("5a282be86ad9877fa8c09d57"),
+    "firstName" : "Isaac",
+    "lastName" : "Asimov"
 }
 {
-        "_id" : ObjectId("5a282be86ad9877fa8c09d58"),
-        "firstName" : "Elena",
-        "lastName" : "soraya",
-        "gender" : "female"
+    "_id" : ObjectId("5a282be86ad9877fa8c09d58"),
+    "firstName" : "Elena",
+    "lastName" : "soraya",
+    "gender" : "female"
 }
 {
-        "_id" : ObjectId("5a282be86ad9877fa8c09d59"),
-        "firstName" : "Joe",
-        "lastName" : "McMillan"
+    "_id" : ObjectId("5a282be86ad9877fa8c09d59"),
+    "firstName" : "Joe",
+    "lastName" : "McMillan"
 }*/
+
+//https://youtu.be/Apbk83XL8L8?t=2368
+db.clientes.update(
+    {_id:ObjectId("5a282be86ad9877fa8c09d59")},
+    {
+        $set:{age:45}
+    }
+)
+/*
+{
+    "_id" : ObjectId("5a282be86ad9877fa8c09d59"),
+    "firstName" : "Isaac",
+    "lastName" : "Delahaye",
+    "gender" : "male",
+    // "age" : 45
+}
+*/
+db.clientes.update(
+    {_id:ObjectId("5a282be86ad9877fa8c09d59")},
+    {
+        $inc: {age:5}
+    }
+)
+
+/*
+{
+    "_id" : ObjectId("5a282be86ad9877fa8c09d59"),
+    "firstName" : "Isaac",
+    "lastName" : "Delahaye",
+    "gender" : "male",
+    "age" : 50
+}
+*/
 
