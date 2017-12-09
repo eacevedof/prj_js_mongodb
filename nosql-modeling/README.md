@@ -18,10 +18,11 @@
 13. [Related - data changes with differing volatility](https://youtu.be/-o_VGpJP-Q0?t=832)
 14. [Related - referenced entity is a key entity used by many others](https://youtu.be/-o_VGpJP-Q0?t=896)
 15. [Combining embed + reference](https://youtu.be/-o_VGpJP-Q0?t=985)
-16. []()
+16. [Normalization vs denormalization](https://youtu.be/-o_VGpJP-Q0?t=1143)
 17. []()
 18. []()
-
+17. []()
+18. []()
 # notas
 
 ## [Modeling Challenges](https://youtu.be/-o_VGpJP-Q0?t=55)
@@ -426,7 +427,39 @@ WHERE p.type="toReviewSummary"
 AND p.productId = "product1"
 ```
 
+## [Normalization vs denormalization](https://youtu.be/-o_VGpJP-Q0?t=1143)
+- En este ejemplo (normalizado) si se diera el caso que tuviera que cargar las constantemente
+con esa frecuencia tendria que cargar los datos del ponente necesitando una consulta extra,
+se podría [modificar](https://youtu.be/-o_VGpJP-Q0?t=1208) un poco la estructura de modo que se redunde 
+los datos minimos necesarios.
+
 ```javascript
+//Ejemplo tipico de una estructura normalizada
+//https://youtu.be/-o_VGpJP-Q0?t=1175
+{
+    "sessionId": "session1",
+    "sessionName": "Document modeling",
+    "speakers": [
+        {"speakerId":1},{"speakerId":2}
+    ]
+},
+{
+    "id": "speaker1",
+    "fullname": "Ryan CrawCour",
+    "shortname": "Ryan",
+    "profile": "Ryan is a PM in the DocumentDB team",
+    "images": [{"thumbnail": "http://..."},{"profile": "http://..."}]
+}
+
+//Modificacion con desnormalizacion. Redundando
+//https://youtu.be/-o_VGpJP-Q0?t=1208
+{
+    "sessionId": "session1",
+    "sessionName": "Document modeling",
+    "speakers": [
+        {"speakerId":1,"shortname": "Ryan", "thumbnail":"..","shortprofile":"Ryan is DocumentDB..."},{"speakerId":2,"shortname": "David", "thumbnail":"..","shortprofile":"David is an architect..."},
+    ]
+},
 ```
 
 ```javascript
