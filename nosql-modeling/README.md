@@ -34,7 +34,7 @@ estricto de la palabra lo hay.
 - Modeling data, the document way [Documento JSON](https://youtu.be/-o_VGpJP-Q0?t=246)
 
 ## [To embed or to reference, that is the question](https://youtu.be/-o_VGpJP-Q0?t=275)
-```javascript
+```json
 //[Imagen](https://youtu.be/-o_VGpJP-Q0)
 //EMBED
 {
