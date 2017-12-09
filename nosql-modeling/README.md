@@ -7,8 +7,8 @@
 2. [Document modeling](https://youtu.be/-o_VGpJP-Q0?t=69)
 3. [Modeling Challenge - embed or reference](https://youtu.be/-o_VGpJP-Q0?t=262)
 4. [To embed](https://youtu.be/-o_VGpJP-Q0?t=340)
-5. []()
-6. []()
+5. [Embed - Single piece](https://youtu.be/-o_VGpJP-Q0?t=365)
+6. [Embed - Dependencies](https://youtu.be/-o_VGpJP-Q0?t=454)
 7. []()
 8. []()
 9. []()
@@ -76,11 +76,24 @@ estricto de la palabra lo hay.
 1. Datos de entidades que se necesitan en un conjunto, como una sola pieza ([p.e. Un libro](https://youtu.be/-o_VGpJP-Q0?t=365))
 - Si suponemos que entramos en una libreria y los libros estan separados en sus componentes, en una estanteria
 tenemos los titulos, en otra las tapas, en otra los indices, en otra los capítulos.
-
+- Lo lógico es que tenga la pieza completa, el libro con todas sus partes unidas, luego así deberia estar modelado en [JSON](https://youtu.be/-o_VGpJP-Q0?t=427)
 
 ```javascript
+//Ejemplo de cuando las cosas deben permanecer acopladas como una sola pieza
+{
+    "id":"book1",
+    "covers":[
+        {"type":"front", "artworkUrl": "http://..."},
+        {"type":"back", "artworkUrl": "http://..."}
+    ],
+    "chapters": [
+        {"id":1, "synopsis": "", "pages":24, "words".1456},
+        {"id":2, "synopsis": "", "pages":18, "words".960},
+    ]
+}
 ```
 
+2. Otro indicio que debemos tomar en cuenta para el embebido son las [dependencias](https://youtu.be/-o_VGpJP-Q0?t=454)
 
 ```javascript
 ```
