@@ -125,10 +125,20 @@ llamado 'profile'
 }
 ```
 
-4. [Volatility](https://youtu.be/-o_VGpJP-Q0?t=527)
-
+4. [Volatility](https://youtu.be/-o_VGpJP-Q0?t=527) La volatilidad habla de la poca frecuencia de cambio que pueda tener un dato de una entidad. En este [ejemplo](https://youtu.be/-o_VGpJP-Q0?t=560), el email, los ids de redes sociales.
 
 ```javascript
+//Ejemplo email y redes sociales: https://youtu.be/-o_VGpJP-Q0?t=560
+{
+    "id": "person1",
+    "name": "John Smith",
+    "email": "jsmith@contoso.com",
+    "socialIds": [
+        {"twitchat": "jsmith"},
+        {"instabook": "jsmith"}
+    ]
+}
+
 ```
 
 
