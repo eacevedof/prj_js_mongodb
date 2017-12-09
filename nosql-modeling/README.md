@@ -10,8 +10,8 @@
 5. [Embed - Single piece](https://youtu.be/-o_VGpJP-Q0?t=365)
 6. [Embed - Dependencies](https://youtu.be/-o_VGpJP-Q0?t=454)
 7. [Embed - 1:1 Relationship](https://youtu.be/-o_VGpJP-Q0?t=496)
-8. [Embed - Volatility](https://youtu.be/-o_VGpJP-Q0?t=527)
-9. []()
+8. [Embed - Similar volatility](https://youtu.be/-o_VGpJP-Q0?t=527)
+9. [Embed - Bounded (1:few)](https://youtu.be/-o_VGpJP-Q0?t=565)
 10. []()
 11. []()
 12. []()
@@ -125,7 +125,7 @@ llamado 'profile'
 }
 ```
 
-4. [Volatility](https://youtu.be/-o_VGpJP-Q0?t=527) La volatilidad habla de la poca frecuencia de cambio que pueda tener un dato de una entidad. En este [ejemplo](https://youtu.be/-o_VGpJP-Q0?t=560), el email, los ids de redes sociales.
+4. [Similar volatility](https://youtu.be/-o_VGpJP-Q0?t=527) La volatilidad habla de la poca frecuencia de cambio que pueda tener un dato de una entidad. En este [ejemplo](https://youtu.be/-o_VGpJP-Q0?t=560), el email, los ids de redes sociales.
 
 ```javascript
 //Ejemplo email y redes sociales: https://youtu.be/-o_VGpJP-Q0?t=560
@@ -141,7 +141,29 @@ llamado 'profile'
 
 ```
 
+5. [Bounded (1:few)](https://youtu.be/-o_VGpJP-Q0?t=565) Conjunto de valores o sub-documentos que estan relaciones 1:n. Ejemplo los tags de una tarea.
 
 ```javascript
+{
+    "id": "task1",
+    "dueBy": "2016-03-30",
+    "desc": "deliver an awesome presentation @ //build!",
+    "tags" [{"tag": "talk"},{"tag": "build"}]
+}
 ```
 
+```sql
+SELECT VALUE tasks.description
+FROM tasks
+JOIN tags IN tasks.tags
+WHERE tags.tag = "build"
+ORDER BY tasks.dueBy
+```
+
+```javascript
+[
+    "Pick up badge",
+    "deliver an awesome presentation @ //build!",
+    "Party!"
+]
+```
