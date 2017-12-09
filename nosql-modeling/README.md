@@ -23,6 +23,7 @@
 18. [Use case: Hierarchies](https://youtu.be/-o_VGpJP-Q0?t=1475)
 19. [Use case: Keyword](https://youtu.be/-o_VGpJP-Q0?t=1586)
 20. [Use case: Telemetry](https://youtu.be/-o_VGpJP-Q0?t=1675)
+21. [Use case: Logging](https://youtu.be/-o_VGpJP-Q0?t=1733)
 
 # notas
 
@@ -604,3 +605,6 @@ se genera un documento por cada periodo de tiempo. Es decir cada documento sopor
     ]
 }
 ```
+
+## [Use case: Logging](https://youtu.be/-o_VGpJP-Q0?t=1733)
+- Logging es un caso parecido al anterior, se puede explotar y dividir por tiempo y region o tipo.
