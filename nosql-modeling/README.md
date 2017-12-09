@@ -12,7 +12,7 @@
 7. [Embed - 1:1 Relationship](https://youtu.be/-o_VGpJP-Q0?t=496)
 8. [Embed - Similar volatility](https://youtu.be/-o_VGpJP-Q0?t=527)
 9. [Embed - Bounded (1:few)](https://youtu.be/-o_VGpJP-Q0?t=565)
-10. []()
+10. [Related data - Referencing](https://youtu.be/-o_VGpJP-Q0?t=650)
 11. []()
 12. []()
 13. []()
@@ -153,6 +153,7 @@ llamado 'profile'
 ```
 
 ```sql
+-- https://youtu.be/-o_VGpJP-Q0?t=620
 SELECT VALUE tasks.description
 FROM tasks
 JOIN tags IN tasks.tags
@@ -161,9 +162,14 @@ ORDER BY tasks.dueBy
 ```
 
 ```javascript
+// https://youtu.be/-o_VGpJP-Q0?t=620
 [
     "Pick up badge",
     "deliver an awesome presentation @ //build!",
     "Party!"
 ]
 ```
+
+- Los datos embebidos suelen presentar mejor rendimiento de [lectura](https://youtu.be/-o_VGpJP-Q0?t=636)
+puesto que solo tienes que hacer una llamada para traerte todos los datos embebidos.
+
