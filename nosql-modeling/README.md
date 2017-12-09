@@ -27,9 +27,13 @@
 - Homogeneous vs heterogeneous data
 
 ## [Document modeling](https://youtu.be/-o_VGpJP-Q0?t=69)
-- 
-- 
-- 
+- Tanto en bd sql como nosql el modelado es importante, si bien no existe un esquema en el uso
+estricto de la palabra lo hay.
+- Se puede entender [sql vs nosql](https://youtu.be/-o_VGpJP-Q0?t=193) como la siguiente metafora. Un coche con todas sus piezas separadas (sql), las nosql entienden el coche como una pieza encapsulada
+- Modeling data, the relational way [Esquema E/R](https://youtu.be/-o_VGpJP-Q0?t=226)
+- Modeling data, the document way [Documento JSON](https://youtu.be/-o_VGpJP-Q0?t=246)
+
+
 
 
 ```javascript
