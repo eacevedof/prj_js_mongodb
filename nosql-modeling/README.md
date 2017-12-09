@@ -13,9 +13,9 @@
 8. [Embed - Similar volatility](https://youtu.be/-o_VGpJP-Q0?t=527)
 9. [Embed - Bounded (1:few)](https://youtu.be/-o_VGpJP-Q0?t=565)
 10. [Related data - Referencing](https://youtu.be/-o_VGpJP-Q0?t=650)
-11. []()
-12. []()
-13. []()
+11. [Related - one-to-many relationships (unbounded)](https://youtu.be/-o_VGpJP-Q0?t=671)
+12. [Related - many-to-many relationships](https://youtu.be/-o_VGpJP-Q0?t=728)
+13. [Related - data changes with differing volatility](https://youtu.be/-o_VGpJP-Q0?t=832)
 14. []()
 15. []()
 
@@ -72,7 +72,7 @@ estricto de la palabra lo hay.
 
 ## [To embed](https://youtu.be/-o_VGpJP-Q0?t=340)
 
-#### [Aspectos que nos indican que los datos deben estar embebidos](https://youtu.be/-o_VGpJP-Q0?t=340)
+#### [Aspectos que nos indican que los datos deben estar embebidos:](https://youtu.be/-o_VGpJP-Q0?t=340)
 1. Datos de entidades que se necesitan en un conjunto, como una sola pieza ([p.e. Un libro](https://youtu.be/-o_VGpJP-Q0?t=365))
 - Si suponemos que entramos en una libreria y los libros estan separados en sus componentes, en una estanteria
 tenemos los titulos, en otra las tapas, en otra los indices, en otra los capítulos.
@@ -175,6 +175,174 @@ puesto que solo tienes que hacer una llamada para traerte todos los datos embebi
 
 ## [Related data - Referencing](https://youtu.be/-o_VGpJP-Q0?t=650)
 
-#### [Aspectos que nos indican que los datos deben estar relacionados]()
+- A veces nos dedicamos a embeber todo y en ocasiones modelar con referencia es mejor
 
-1. 
+#### [Aspectos que nos indican que los datos deben estar relacionados:](https://youtu.be/-o_VGpJP-Q0?t=671)
+
+1. [Related - one-to-many relationships (unbounded)](https://youtu.be/-o_VGpJP-Q0?t=671) En los casos que un atributo que tenga relacion `1:n`, Post y comentarios por ejemplo, es decir de ilimitados comentarios entonces 
+lo mejor es tener una entidad (documento) comentarios por separado. 
+Si no se hace esto el documento crecera de tamaño tanto que cada vez sera mas lento el acceso a la información
+
+```javascript
+//Ejemplo charla y comentarios
+//https://youtu.be/-o_VGpJP-Q0?t=683
+{
+    "id": "t1",
+    "description": "Modeling document databases",
+    "tags": ["build","talk"],
+    "comments": [
+        {"id": "c1", "comment": "Cool talk!"},
+        {"id": "c2", "comment": "Watching again"},
+        {"id": "c3", "comment": "Mind. Blown."},
+        ...
+        {"id": "c99999","comment": "Still going..."}
+    ]
+}
+```
+##### Quedaría así:
+```javascript
+//https://youtu.be/-o_VGpJP-Q0?t=714
+{
+    "id": "s1",
+    "description": "Modeling document databases",
+    "tags": ["build","talk"]
+}
+
+{"id": "c1", "sessionId": "s1", "comment": "Cool talk!"},
+{"id": "c2", "sessionId": "s1", "comment": "Watching again"},
+{"id": "c3", "sessionId": "s1", "comment": "Mind. Blown."},
+...
+{"id": "c99999", "sessionId": "s1", "comment": "Still going..."}
+```
+2. [Related - many-to-many relationships](https://youtu.be/-o_VGpJP-Q0?t=728) 
+Ejemplo de ponentes y sus temas. Un ponente puede estar en varias charlas y una charla incluye a varios 
+ponentes. En este caso no hay una forma [estricta](https://youtu.be/-o_VGpJP-Q0?t=785) de como debes modelar la relación n:m. Se podria entender como los ponentes participan en las charlas o las charlas tienen ponentes.
+```javascript
+//https://youtu.be/-o_VGpJP-Q0?t=748
+//Esta es la forma típica de como se haría en el modelo tradicional de E/R con n:m
+//ponentes
+{
+    "id": "s1",
+    "name": "Ryan"
+}
+{
+    "id": "s2",
+    "name": "David"
+}
+//ponentes:charlas
+//los dos ponentes estan en la misma charla
+{
+    "speakerId": "s1",
+    "sessionId": "t1"
+}
+
+{
+    "speakerId": "s2",
+    "sessionId": "t1"
+}
+
+//Las charlas que se presentan
+{
+    "id": "t1",
+    "description": "Modeling data"
+}
+{
+    "id": "t2",
+    "description": "Fun with data"
+}
+```
+- Como seria el modelado en documentos
+```javascript
+//https://youtu.be/-o_VGpJP-Q0?t=771
+//ponentes con sus charlas
+{
+    "id": "s1",
+    "name": "Ryan",
+    "sessions":[
+        {"id": "t1"},{"id": "t2"}
+    ]
+}
+{
+    "id": "s2",
+    "name": "David",
+    "sessions":[
+        {"id": "t1"}
+    ]
+}
+
+//charlas y sus participantes
+{
+    "id": "t1",
+    "name": "Modeling document databases",
+    "speakers": [
+        {"id":"s1"},{"id":"s2"}
+    ]
+}
+{
+    "id": "t2",
+    "name": "Fun with data",
+    "speakers": [
+        {"id":"s1"}
+    ]
+}
+```
+```sql
+-- https://youtu.be/-o_VGpJP-Q0?t=806
+-- buscando a los ponentes que tengan un id
+SELECT s.speakerId, s.speakerName, s.sessions
+FROM speaker s
+JOIN sessions IN s.sessions
+WHERE session.sessionId = "session1"
+AND s.type="speaker"
+
+SELECT s.speakerId, s.speakerName, s.sessions
+FROM speaker s
+JOIN sessions IN s.sessions
+WHERE session.sessionId = "speaker2"
+AND s.type="session"
+```
+
+```javascript
+//Resultado de la primera, se busca los ponentes 
+//de una determinada charla
+[
+    {
+        "speakerId": "speaker1",
+        ...
+        "sessions":[
+            {
+                "sessionId":"session1"
+            },
+            {
+                "sessionId":"session2"
+            },
+        ]
+    },
+    {
+        "speakerId": "speaker2",
+        ...
+        "sessions":[
+            {
+                "sessionId":"session1"
+            }
+        ]
+    }    
+]
+```
+3. [Related - data changes with differing volatility](https://youtu.be/-o_VGpJP-Q0?t=832) 
+Por ejemplo la charla y sus stadisticas de likes 
+
+```javascript
+//https://youtu.be/-o_VGpJP-Q0?t=857
+{
+    "id": "t1",
+    "description": "Modeling document databases",
+    "tags": ["build","talk"],
+    "speakers": ["ryan","david"],
+    "likes": 250,
+    "hearts": 500
+}
+```
+
+```javascript
+```
