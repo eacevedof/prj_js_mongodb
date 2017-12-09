@@ -1,0 +1,17 @@
+//Modeling data, the document way
+//https://youtu.be/-o_VGpJP-Q0?t=246
+{
+    "id": "token-1",
+    "addresses": [
+        {
+            "street": "1 Redmond way",
+            "city": "Redmond","state":"WA",
+            "zip": "98052"
+        }
+    ],
+    "contactDetails":[
+        {"type":"home","detail":"555-1212"},
+        {"type":"email","detail":"me@ms.com"},
+    ],
+    ...
+}
