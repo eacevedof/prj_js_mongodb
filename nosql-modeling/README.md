@@ -94,8 +94,20 @@ tenemos los titulos, en otra las tapas, en otra los indices, en otra los capítu
 ```
 
 2. Otro indicio que debemos tomar en cuenta para el embebido son las [dependencias](https://youtu.be/-o_VGpJP-Q0?t=454)
+- El ejemplo del pedido y sus lineas. Mejor dicho las [lineas](https://youtu.be/-o_VGpJP-Q0?t=464) que dependen del pedido (cabecera)
 
 ```javascript
+//Ejemplo pedido: https://youtu.be/-o_VGpJP-Q0?t=480
+{
+    "id": "order1",
+    "customer": "customer1",
+    "orderDate:" "2014-09-15T23:14:25.7251173z",
+    "lines": [
+        {"product":"monitor","price": 200.00, "qty": 50},
+        {"product":"keyboard","price": 23.67, "qty": 4},
+        {"product":"CPU","price": 87.89, "qty": 1},
+    ]
+}
 ```
 
 
