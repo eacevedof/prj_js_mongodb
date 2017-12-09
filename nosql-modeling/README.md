@@ -9,8 +9,8 @@
 4. [To embed](https://youtu.be/-o_VGpJP-Q0?t=340)
 5. [Embed - Single piece](https://youtu.be/-o_VGpJP-Q0?t=365)
 6. [Embed - Dependencies](https://youtu.be/-o_VGpJP-Q0?t=454)
-7. []()
-8. []()
+7. [Embed - 1:1 Relationship](https://youtu.be/-o_VGpJP-Q0?t=496)
+8. [Embed - Volatility](https://youtu.be/-o_VGpJP-Q0?t=527)
 9. []()
 10. []()
 11. []()
@@ -110,9 +110,22 @@ tenemos los titulos, en otra las tapas, en otra los indices, en otra los capítu
 }
 ```
 
+3. [Relacion 1:1](https://youtu.be/-o_VGpJP-Q0?t=504) Ejemplo de una persona y su perfil.
+La persona tiene unos datos maestros pero al mismo tiempo hay datos que se pueden agrupar como un subdocumento
+llamado 'profile'
 
 ```javascript
+{
+    "id": "person1",
+    "username": "jsmith",
+    "profile": {
+        "name": "John Smith",
+        "joinDate": "2016-03-01"
+    }
+}
 ```
+
+4. [Volatility](https://youtu.be/-o_VGpJP-Q0?t=527)
 
 
 ```javascript
