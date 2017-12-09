@@ -72,7 +72,7 @@ estricto de la palabra lo hay.
 
 ## [To embed](https://youtu.be/-o_VGpJP-Q0?t=340)
 
-###### [Aspectos que nos indican que los datos deben estar embebidos](https://youtu.be/-o_VGpJP-Q0?t=340)
+#### [Aspectos que nos indican que los datos deben estar embebidos](https://youtu.be/-o_VGpJP-Q0?t=340)
 1. Datos de entidades que se necesitan en un conjunto, como una sola pieza ([p.e. Un libro](https://youtu.be/-o_VGpJP-Q0?t=365))
 - Si suponemos que entramos en una libreria y los libros estan separados en sus componentes, en una estanteria
 tenemos los titulos, en otra las tapas, en otra los indices, en otra los capítulos.
@@ -173,3 +173,8 @@ ORDER BY tasks.dueBy
 - Los datos embebidos suelen presentar mejor rendimiento de [lectura](https://youtu.be/-o_VGpJP-Q0?t=636)
 puesto que solo tienes que hacer una llamada para traerte todos los datos embebidos.
 
+## [Related data - Referencing](https://youtu.be/-o_VGpJP-Q0?t=650)
+
+#### [Aspectos que nos indican que los datos deben estar relacionados]()
+
+1. 
