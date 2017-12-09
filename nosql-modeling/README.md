@@ -436,7 +436,7 @@ los datos minimos necesarios.
 
 - La normalizacion lleva implicita un ahorro de espacio, [antes eso era importante](https://youtu.be/-o_VGpJP-Q0?t=1292), hoy en día no tanto ya que los costos son menores.
 
-- La desnormalización ofrece mejor rendimiento en lectura pero a su vez requiere que en las actualizaciones se tenga que recorrer multiples clases/objetos para ser actualizados
+- La desnormalización ofrece mejor rendimiento en lectura pero a su vez requiere que en las actualizaciones se tenga que recorrer multiples clases/objetos para su modificación.
 
 ```javascript
 //Ejemplo tipico de una estructura normalizada
@@ -468,8 +468,38 @@ los datos minimos necesarios.
 ```
 ## [Homogeneous vs Heterogeneous data](https://youtu.be/-o_VGpJP-Q0?t=1327)
 
-- 
+- En un mundo de relaciones deberiamos de crear una tabla para: [`ponente`, `charla`, `sala`] (https://youtu.be/-o_VGpJP-Q0?t=1335) En el modelado nosql les llamariamos colecciones, hasta aqui 
+no hay problema. 
+Sin embargo, puede existir un impacot de estas sobre: [`facturas`, `transacciones`, `consultas`](https://youtu.be/-o_VGpJP-Q0?t=1352)  
+- En el ejemplo se sugiere usar la misma colección diferenciando los documentos por el atributo 
+[`type`](https://youtu.be/-o_VGpJP-Q0?t=1392) 
+
 ```javascript
+//Homogeneous vs Heterogeneous data
+//https://youtu.be/-o_VGpJP-Q0?t=1384
+{
+    "type": "speaker",
+    "speakerid": "speaker1",
+    "speakername": "Ryan Crawcour",
+    "sessions": [
+        {"sessionId": "session1", "desc": "#DEV301 - Document Modeling"},
+        {"sessionId": "session2", "desc": "#DEV203 - fun with data"}
+    ]
+},
+{
+    "type": "session",
+    "sessionid": "session1",
+    "code": "DEV301",
+    "name": "Document modeling",
+    "speakers": [
+        {"speakerid": "speaker1", "shortname": "Ryan"}
+    ]
+}
+// SQL QUERY : https://youtu.be/-o_VGpJP-Q0?t=1415 select por type
+// https://youtu.be/-o_VGpJP-Q0?t=1455
+// En una consulta se puede extraer 3 tipos distintos de datos
+// si huberan estado en colecciones distintas se tendria que haber hecho 3 consultas por separado
+
 ```
 
 ```javascript
