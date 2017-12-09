@@ -21,8 +21,8 @@
 16. [Normalization vs denormalization](https://youtu.be/-o_VGpJP-Q0?t=1143)
 17. [Homogeneous vs Heterogeneous data](https://youtu.be/-o_VGpJP-Q0?t=1327)
 18. [Use case: Hierarchies](https://youtu.be/-o_VGpJP-Q0?t=1475)
-19. []()
-20. []()
+19. [Use case: Keyword](https://youtu.be/-o_VGpJP-Q0?t=1586)
+20. [Use case: Telemetry](https://youtu.be/-o_VGpJP-Q0?t=1676)
 
 # notas
 
@@ -536,6 +536,43 @@ FROM org
 WHERE ARRAY_CONTAINS(org.directs, "Ben")
 ```
 
+## [Use case: Keyword](https://youtu.be/-o_VGpJP-Q0?t=1586) 
+
+- Busquedas por keywords `CONTAINS(LOWER(c.title), "design")` es como un `LIKE`, de rendimiento costoso
+- Se agrega una atributo keywords al documento de modo que no se tenga que buscar por todo el texto largo
+sino por las palabras clave que estan dentro de un array
+- Para definir las keywords se usa [RegEx](https://youtu.be/-o_VGpJP-Q0?t=1643) para transformar todo el texto a lowercase, se quitan las puntuaciones
+se eliminan palabras como "a", "el/la", "de", etc.
+- Se combinan las keywords para formar frases claves 
+
 ```javascript
+{
+    "id": "CDC101",
+    "title": "Fundamentas of database design",
+    "credits": 10
+}
+
+//https://youtu.be/-o_VGpJP-Q0?t=1641
+{
+    "id": "CDC101",
+    "title": "Fundamentas of database design",
+    "keywords" ["databse","design","database design"]
+    "credits": 10
+}
 ```
 
+```sql
+-- query: https://youtu.be/-o_VGpJP-Q0?t=1614
+SELECT c.id, c.title
+FROM c
+WHERE CONTAINS(LOWER(c.title), "design")
+-- time: 7.25 (micro s)
+
+-- con keywords
+-- query: https://youtu.be/-o_VGpJP-Q0?t=1645
+SELECT c.id, c.title
+FROM c
+WHERE ARRAY_CONTAINS(c.keywords,"design")
+-- time: 3.12 (micro s)
+
+```
