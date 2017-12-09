@@ -5,7 +5,7 @@
 # indice
 1. [Modeling Challenges](https://youtu.be/-o_VGpJP-Q0?t=43)
 2. [Document modeling](https://youtu.be/-o_VGpJP-Q0?t=69)
-3. []()
+3. [Modeling Challenge - embed or reference](https://youtu.be/-o_VGpJP-Q0?t=262)
 4. []()
 5. []()
 6. []()
@@ -33,10 +33,42 @@ estricto de la palabra lo hay.
 - Modeling data, the relational way [Esquema E/R](https://youtu.be/-o_VGpJP-Q0?t=226)
 - Modeling data, the document way [Documento JSON](https://youtu.be/-o_VGpJP-Q0?t=246)
 
-
-
-
+## [To embed or to reference, that is the question](https://youtu.be/-o_VGpJP-Q0?t=275)
 ```javascript
+//[Imagen](https://youtu.be/-o_VGpJP-Q0)
+//EMBED
+{
+    "sessionId": "session1",
+    "sessionName": "Document modeling",
+    "speakers": [
+        {   "id":1, "name": "Ryan",
+            "thumbnailUrl": "...",
+            "shortProfile": "..."
+        },
+        {   "id":2, "name": "David",
+            "thumbnailUrl": "...",
+            "shortProfile": "..."
+        }        
+    ]
+}
+
+//REFERENCE
+{
+    "sessionId": "session1",
+    "sessionName": "Document modeling",
+    "speakers": [{"id":1},{"id":2}]
+},
+{
+    "id": "1","name": "Ryan",
+    "thumbnailUrl": "...",
+    "shortProfile": "..."
+},
+{   "id":2, "name": "David",
+    "thumbnailUrl": "...",
+    "shortProfile": "..."
+}   
+
+
 ```
 
 
