@@ -19,7 +19,7 @@
 14. [Related - referenced entity is a key entity used by many others](https://youtu.be/-o_VGpJP-Q0?t=896)
 15. [Combining embed + reference](https://youtu.be/-o_VGpJP-Q0?t=985)
 16. [Normalization vs denormalization](https://youtu.be/-o_VGpJP-Q0?t=1143)
-17. []()
+17. [Homogeneous vs Heterogeneous data](https://youtu.be/-o_VGpJP-Q0?t=1327)
 18. []()
 17. []()
 18. []()
@@ -359,7 +359,7 @@ con las estadisticas y actualizarlo
 {"id": "stats1", "sessionId": "t1", "likes":25,"hearts":500}
 ```
 4. [Related - referenced entity is a key entity used by many others](https://youtu.be/-o_VGpJP-Q0?t=896)
-El ejemplo, una conferencia con varias salas y estas salas constan con un equipo de grabacion.
+El ejemplo, una conferencia con varias salas y estas salas cuentan con un equipo de grabación.
 Si se va moviendo el equipo entre estas habria que estar actualizando cada documento `charla` por tener
 embebida la sala.
 
@@ -371,6 +371,7 @@ embebida la sala.
     "room": {"id": "201", "cap":200,"recording": true}
 }
 
+//quedaría así:
 {
     "id": "t1",
     "description": "Modeling document databases"
@@ -433,6 +434,10 @@ con esa frecuencia tendria que cargar los datos del ponente necesitando una cons
 se podría [modificar](https://youtu.be/-o_VGpJP-Q0?t=1208) un poco la estructura de modo que se redunde 
 los datos minimos necesarios.
 
+- La normalizacion lleva implicita un ahorro de espacio, [antes eso era importante](https://youtu.be/-o_VGpJP-Q0?t=1292), hoy en día no tanto ya que los costos son menores.
+
+- La desnormalización ofrece mejor rendimiento en lectura pero a su vez requiere que en las actualizaciones se tenga que recorrer multiples clases/objetos para ser actualizados
+
 ```javascript
 //Ejemplo tipico de una estructura normalizada
 //https://youtu.be/-o_VGpJP-Q0?t=1175
@@ -461,7 +466,9 @@ los datos minimos necesarios.
     ]
 },
 ```
+## [Homogeneous vs Heterogeneous data](https://youtu.be/-o_VGpJP-Q0?t=1327)
 
+- 
 ```javascript
 ```
 
