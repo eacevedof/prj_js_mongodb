@@ -20,9 +20,10 @@
 15. [Combining embed + reference](https://youtu.be/-o_VGpJP-Q0?t=985)
 16. [Normalization vs denormalization](https://youtu.be/-o_VGpJP-Q0?t=1143)
 17. [Homogeneous vs Heterogeneous data](https://youtu.be/-o_VGpJP-Q0?t=1327)
-18. []()
-17. []()
-18. []()
+18. [Use case: Hierarchies](https://youtu.be/-o_VGpJP-Q0?t=1475)
+19. []()
+20. []()
+
 # notas
 
 ## [Modeling Challenges](https://youtu.be/-o_VGpJP-Q0?t=55)
@@ -499,13 +500,40 @@ Sin embargo, puede existir un impacot de estas sobre: [`facturas`, `transaccione
 // https://youtu.be/-o_VGpJP-Q0?t=1455
 // En una consulta se puede extraer 3 tipos distintos de datos
 // si huberan estado en colecciones distintas se tendria que haber hecho 3 consultas por separado
-
 ```
 
-```javascript
-```
+## [Use case: Hierarchies](https://youtu.be/-o_VGpJP-Q0?t=1475) 
+[Imagen con la jerarquia de manager y subordinados](https://youtu.be/-o_VGpJP-Q0?t=1495)
 
 ```javascript
+//https://youtu.be/-o_VGpJP-Q0?t=1505
+{
+    {"name": "Jill"},
+    {"name": "Ben","manager":"Jill"},
+    {"name": "Susan","manager":"Jill"},
+    {"name": "Andrew","manager":"Ben"},
+    {"name": "Sven","manager":"Susan"},
+    {"name": "Thomas","manager":"Sven"}
+}
+
+//
+//https://youtu.be/-o_VGpJP-Q0?t=1547
+{
+    {"name": "Jill", "directs":["Ben","Susan"]},
+    {"name": "Ben", "directs":["Andrew"]},
+    {"name": "Susan", "directs":["Sven"]},
+    {"name": "Andrew"},
+    {"name": "Sven","directs":["Thomas"]},
+    {"name": "Thomas"}
+}
+```
+
+```sql
+-- query: https://youtu.be/-o_VGpJP-Q0?t=1558
+-- con esta peculiaridad se puede usar el metodo ARRAY_CONTAINS
+SELECT VALUE org.name 
+FROM org
+WHERE ARRAY_CONTAINS(org.directs, "Ben")
 ```
 
 ```javascript
