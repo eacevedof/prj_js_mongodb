@@ -35,7 +35,7 @@ estricto de la palabra lo hay.
 
 ## [To embed or to reference, that is the question](https://youtu.be/-o_VGpJP-Q0?t=275)
 ```json
-//[Imagen](https://youtu.be/-o_VGpJP-Q0)
+//[Imagen](https://youtu.be/-o_VGpJP-Q0?t=314)
 //EMBED
 {
     "sessionId": "session1",
