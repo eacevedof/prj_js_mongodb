@@ -17,7 +17,7 @@
 12. [Related - many-to-many relationships](https://youtu.be/-o_VGpJP-Q0?t=728)
 13. [Related - data changes with differing volatility](https://youtu.be/-o_VGpJP-Q0?t=832)
 14. [Related - referenced entity is a key entity used by many others](https://youtu.be/-o_VGpJP-Q0?t=896)
-15. []()
+15. [Combining embed + reference](https://youtu.be/-o_VGpJP-Q0?t=985)
 16. []()
 17. []()
 18. []()
@@ -381,3 +381,63 @@ embebida la sala.
 ```
 - Por lo general la referencia provee un mejor rendimiento cuando se trata de escritura
 - La [lectura](https://youtu.be/-o_VGpJP-Q0?t=951) necesitara de mas llamadas al servidor
+
+## [Combining embed + reference](https://youtu.be/-o_VGpJP-Q0?t=985)
+
+- El ejemplo de un producto de una tienda virtual. La volatilidad nuevamente. 
+En el mismo documento de productos se crean otros diferenciados por tipos para
+pedir por separado estos pequeños fragmentos que tienen mayor volatilidad
+
+```javascript
+//https://youtu.be/-o_VGpJP-Q0?t=1067
+{
+    "id": "product1",
+    "type": "product",
+    "name": "Microsoft Band 2- Medium",
+    "price": "174.99",
+    "summary": "Continuos heart rate monitor tracks heart rate...",
+    "images": [{"image1": "http://..."},{"image2": "http://..."}],
+    "reviewSummary": {
+        "averageStars": 4,
+        "reviewCount": 313
+    }
+}
+```
+```sql
+-- https://youtu.be/-o_VGpJP-Q0?t=1115
+-- get product information
+SELECT p.productShortname, p.reviewSummary, p.images,
+p.fullProductDetailId
+FROM Product p
+WHERE p.id = "product1"
+
+-- https://youtu.be/-o_VGpJP-Q0?t=1119
+-- get product summary
+SELECT p.star5,p.star4,p.star3,p.star2,p.star1
+FROM Products p
+WHERE p.type= "ratingSummary"
+AND p.productId = "product1"
+
+-- https://youtu.be/-o_VGpJP-Q0?t=1132
+-- get review
+SELECT p.reviewr, p.title, p.snippet, p.rating, p.fullreviewlink
+FROM Products p
+WHERE p.type="toReviewSummary"
+AND p.productId = "product1"
+```
+
+```javascript
+```
+
+```javascript
+```
+
+```javascript
+```
+
+```javascript
+```
+
+```javascript
+```
+
