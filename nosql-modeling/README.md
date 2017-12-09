@@ -22,7 +22,7 @@
 17. [Homogeneous vs Heterogeneous data](https://youtu.be/-o_VGpJP-Q0?t=1327)
 18. [Use case: Hierarchies](https://youtu.be/-o_VGpJP-Q0?t=1475)
 19. [Use case: Keyword](https://youtu.be/-o_VGpJP-Q0?t=1586)
-20. [Use case: Telemetry](https://youtu.be/-o_VGpJP-Q0?t=1676)
+20. [Use case: Telemetry](https://youtu.be/-o_VGpJP-Q0?t=1675)
 
 # notas
 
@@ -575,4 +575,32 @@ FROM c
 WHERE ARRAY_CONTAINS(c.keywords,"design")
 -- time: 3.12 (micro s)
 
+```
+
+## [Use case: Telemetry](https://youtu.be/-o_VGpJP-Q0?t=1675)
+
+- Dispositivos de lectura: Estaciones climaticas, sensores, etc.
+- Esto no lo he entendido muy bien, al parecer en lugar de estar recreando un documento con cada lectura 
+se genera un documento por cada periodo de tiempo. Es decir cada documento soportara 60 lecturas
+
+```javascript
+//dispositivo de chat
+//https://youtu.be/-o_VGpJP-Q0?t=1695
+{
+    "deviceid": "device1",
+    "timestamp": "...",
+    "reading": 123
+}
+
+//https://youtu.be/-o_VGpJP-Q0?t=1712
+{
+    "id": "...",
+    "timestampminute": "...",
+    "readings": [
+        {"minute":0, "reading":123},
+        {"minute":1, "reading":456},
+        ...
+        {"minute":59, "reading":999}
+    ]
+}
 ```
