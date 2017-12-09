@@ -16,8 +16,11 @@
 11. [Related - one-to-many relationships (unbounded)](https://youtu.be/-o_VGpJP-Q0?t=671)
 12. [Related - many-to-many relationships](https://youtu.be/-o_VGpJP-Q0?t=728)
 13. [Related - data changes with differing volatility](https://youtu.be/-o_VGpJP-Q0?t=832)
-14. []()
+14. [Related - referenced entity is a key entity used by many others](https://youtu.be/-o_VGpJP-Q0?t=896)
 15. []()
+16. []()
+17. []()
+18. []()
 
 # notas
 
@@ -330,7 +333,8 @@ AND s.type="session"
 ]
 ```
 3. [Related - data changes with differing volatility](https://youtu.be/-o_VGpJP-Q0?t=832) 
-Por ejemplo la charla y sus stadisticas de likes 
+Por ejemplo la charla y sus stadisticas de likes. En este caso es mas eficiente pedir el documento
+con las estadisticas y actualizarlo
 
 ```javascript
 //https://youtu.be/-o_VGpJP-Q0?t=857
@@ -342,7 +346,38 @@ Por ejemplo la charla y sus stadisticas de likes
     "likes": 250,
     "hearts": 500
 }
+
+//como debería quedar
+{
+    "id": "t1",
+    "description": "Modeling document databases",
+    "tags": ["build","talk"],
+    "speakers": ["ryan","david"],
+}
+
+{"id": "stats1", "sessionId": "t1", "likes":25,"hearts":500}
 ```
+4. [Related - referenced entity is a key entity used by many others](https://youtu.be/-o_VGpJP-Q0?t=896)
+El ejemplo, una conferencia con varias salas y estas salas constan con un equipo de grabacion.
+Si se va moviendo el equipo entre estas habria que estar actualizando cada documento `charla` por tener
+embebida la sala.
 
 ```javascript
+//https://youtu.be/-o_VGpJP-Q0?t=934
+{
+    "id": "t1",
+    "description": "Modeling document databases",
+    "room": {"id": "201", "cap":200,"recording": true}
+}
+
+{
+    "id": "t1",
+    "description": "Modeling document databases"
+    "roomId": "r201"
+}
+{
+    {"id": "r201", "cap":200, "recording": true}
+}
 ```
+- Por lo general la referencia provee un mejor rendimiento cuando se trata de escritura
+- La [lectura](https://youtu.be/-o_VGpJP-Q0?t=951) necesitara de mas llamadas al servidor
