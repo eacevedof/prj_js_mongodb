@@ -44,7 +44,7 @@ FAZT - MongoDB, Curso Practico Rápido, Desde Cero Para Iniciantes
 +----------------------------------------------------+------------------------------------------------------------------------------------------------------------+
 | mongod                                             | inicia el servidor de mongodb, deja el servicio corriendo                                                  |
 | mongo                                              | para ejecutar comandos de mongo, habilita el shell propio de mongo                                         |
-| show                                               | dbsmuestra las bases de datos, (como show databases en mysql)                                              |
+| show dbs                                           | muestra las bases de datos, (como show databases en mysql)                                              |
 | db                                                 | indica la base de datos a la que se ha conectado                                                           |
 | use <nombrebd>                                     | cambia la conexión actual a la bd <nombrebd>                                                               |
 | db.createUser()                                    | crea un usuario, muestra Successfully added user:<el json>                                                 |
